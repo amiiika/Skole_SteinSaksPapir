@@ -1,35 +1,39 @@
 body{
     text-align: center;
-    color: rgb(145, 100, 175);
-    font-family: 'Courier New', Courier, monospace;
-
+    color: rgb(255, 255, 255);
+    font-family: sans-serif;
 }
-
 header{
-    background-color: rgb(232, 201, 253);
+    background-color: rgb(27, 27, 27);
     padding: 2vh;
     font-size: 3vh;
 }
-
 p{
     padding: 2vh;
     margin: auto 20% auto 20%;
     font-size: 3vh;
+    color: rgb(27, 27, 27);
 }
+button{
+    margin: 4vh auto;
+}
+
+
+
 
 
 .visuals{
-    display: block;
-    
+    display: block; 
 }
-
-.visuals:hover{
+.bounce{
     animation: bounce 1s linear;
 }
-
-.box,
-.box2{
+img{
+    width: 20vh;
+}
+.box{
     display: inline-block;
+    margin: 2vh;
 }
 
 @keyframes bounce{

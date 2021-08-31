@@ -5,39 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel= "stylesheet" href ="../css/style.css">
     <link rel= "script"     href = "../script/app.js">
-    <title>Stein, saks, papir</title>
+    <title>Stein Saks Papir</title>
 </head>
 <body>
     <header>
-        <h1> Stein, saks, papir</h1>
+        <h1> Stein Saks Papir</h1>
     </header>
-    <br> <br>
+
+    <button onclick="start()">START!</button>
+
+
 
     <div class="visuals">
-
-       <div class ="box"> <img src="../src/stein.png" width="150vh" > </div>
-       <div class ="box2"> <img src="../src/stein2.png" width="150" > </div>
-
-
+       <div class ="box"> <img src="../src/stein.png" > </div>
+       <div class ="box"> <img src="../src/stein2.png" > </div>
     </div>
-        <div class= "selections">
-            <button class = " selections">Stein</button>
-            <button class = " selections">Saks</button>
-            <button class = " selections">Papir</button>
-        </div>
-        <div class="results">
-           <div>
-               Deg
-               <p class="result-score"> 0 </p>
-           </div> 
-           <div>
-               Datamaskin
-               <p class="result-score"> 0 </p>
-           </div>
 
-        </div>
+    <div class= "selections">
+        <button onclick="stein">Stein</button>
+        <button onclick = "saks">Saks</button>
+        <button onclick = "papir">Papir</button>
+    </div>
 
-    <br> <br>
+    
+       
+
     <button onclick="window.location.href='../index.html'">Regler</button>
     
 </body>
