@@ -1,4 +1,172 @@
-body{
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+section{
+    height: 100vh;
+    background-color: rgb(110, 155, 155);
+    font-family: sans-serif;
+}
+
+.score {
+    color: whitesmoke;
+    height: 20vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.score h2 {
+    font-size: 30px;
+}
+.score p{
+    text-align: center;
+    padding: 10px;
+    font-size: 25px;
+}
+
+.intro {
+    color: whitesmoke;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    transition: opacity 0.5s ease;
+}
+.intro h1{
+    font-size: 50px;
+}
+.intro button, 
+.match button{
+    width: 150px;
+    height: 50px;
+    background: none;
+    border: none;
+    color: whitesmoke;
+    font-size: 20px;
+    background-color: tomato;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.match{
+    position:absolute;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.5s ease 0.5s;
+}
+.winner{
+    color: whitesmoke;
+    text-align: center;
+    font-size: 50px;
+}
+
+.hands,
+.options{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.player-hand{
+    transform: rotateY(180deg);
+}
+
+div.fadeOut{
+    opacity: 0;
+    pointer-events: none;
+}
+
+div.fadeIn{
+    opacity: 3;
+    pointer-events: all;
+}
+
+@keyframes shakePlayer {
+    0%{
+        transform: rotateY(180deg) translateY(0px);
+    }
+    15%{
+        transform: rotateY(180deg) translateY(-50px);
+    }
+    25%{
+        transform: rotateY(180deg) translateY(0px);
+    }
+    35%{
+        transform: rotateY(180deg) translateY(-50px);
+    }
+    50%{
+        transform: rotateY(180deg) translateY(0px);
+    }
+    65%{
+        transform: rotateY(180deg) translateY(-50px);
+    }
+    75%{
+        transform: rotateY(180deg) translateY(0px);
+    }
+    85%{
+        transform: rotateY(180deg) translateY(-50px);
+    }
+    100%{
+        transform: rotateY(180deg) translateY(0px);
+    }
+}
+
+@keyframes shakeComputer {
+    0%{
+        transform: translateY(0px);
+    }
+    15%{
+        transform: translateY(-50px);
+    }
+    25%{
+        transform: translateY(0px);
+    }
+    35%{
+        transform: translateY(-50px);
+    }
+    50%{
+        transform: translateY(0px);
+    }
+    65%{
+        transform: translateY(-50px);
+    }
+    75%{
+        transform: translateY(0px);
+    }
+    85%{
+        transform: translateY(-50px);
+    }
+    100%{
+        transform: translateY(0px);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* body{
     text-align: center;
     color: rgb(255, 255, 255);
     font-family: sans-serif;
@@ -14,28 +182,46 @@ p{
     font-size: 3vh;
     color: rgb(27, 27, 27);
 }
-button{
+
+.selection{
     margin: 4vh auto;
 }
-
-
-
-
-
-.visuals{
-    display: block; 
+.selection:hover{
+    transform: scale(1.2);
 }
-.bounce{
-    animation: bounce 1s linear;
+
+.results{
+    color: black;
+    font-size: 5vh;
+    margin-top: 1rem;
+    display: grid;
+    justify-content:center;
+    grid-template-columns: repeat(2,1fr);
+    justify-items: center;
+    align-items: center;
+}
+.result-score{
+    margin-left: .1rem;
+    font-size: 3vh;
+
 }
 img{
     width: 20vh;
 }
-.box{
+.result-selection.winner{
     display: inline-block;
     margin: 2vh;
 }
-
+.result-selection{
+    display: inline-block;
+    margin: 2vh;
+}
+.visuals{
+    display: block; 
+}
+.visuals:hover{
+    animation: bounce 1s linear;
+}
 @keyframes bounce{
     20%, 50%, 80%, to{
         transform: translateY(0);
@@ -49,4 +235,4 @@ img{
     90%{
         transform: translateY(-15px);
     }
-}
+} */
