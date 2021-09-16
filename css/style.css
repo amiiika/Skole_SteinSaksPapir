@@ -1,23 +1,35 @@
+/* main body css */
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
+body{
+    background-color: rgb(110, 155, 155);
+}
+header h1{
+    color: whitesmoke;
+    text-align: center;
+    padding: 2px;
+    font-size: 10vh;
+    font-family: sans-serif;
+}
 section{
     height: 100vh;
-    background-color: rgb(110, 155, 155);
     font-family: sans-serif;
 }
 
+/* scoreboard */
 .score {
-    color: whitesmoke;
-    height: 20vh;
+    color: rgb(29, 29, 29);
+    height: 10vh;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
 }
 .score h2 {
+    padding-left:10vh;
+    padding-right:10vh;
     font-size: 30px;
 }
 .score p{
@@ -26,6 +38,7 @@ section{
     font-size: 25px;
 }
 
+/* intro */
 .intro {
     color: whitesmoke;
     height: 50vh;
@@ -33,11 +46,21 @@ section{
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
+    text-align: center;
+    padding: 2px;
+    margin: auto 20% auto 20%;
     transition: opacity 0.5s ease;
 }
-.intro h1{
-    font-size: 50px;
+.intro p{
+    text-align: justify;
+    font-size: 3vh;
 }
+.details{
+    color:rgb(240, 127, 107);
+    font-weight: bold;
+}
+
+/* buttons */
 .intro button, 
 .match button{
     width: 150px;
@@ -47,10 +70,47 @@ section{
     color: whitesmoke;
     font-size: 20px;
     background-color: tomato;
-    border-radius: 3px;
+    border-radius: 6px;
+    transition: 0.3s;
+}
+.show{
+    visibility: visible;
+}
+
+.hidden{
+    visibility: hidden;
+}
+.intro button:hover,
+.match button:hover{
+    color: whitesmoke;
+    background-color:rgb(236, 166, 154);
     cursor: pointer;
 }
 
+.play button{
+    position:absolute;
+    top: 100%;
+    left:50%;
+    transform: translate(-50%, 50%);
+    color: tomato;
+    background-color: whitesmoke;
+    
+}
+
+/* timer */
+.countdown{
+    text-align: center;
+    font-size: 3vh;
+    font-family: sans-serif;
+    color: rgb(29, 29, 29);
+}
+
+/* playfeild */
+.match p{
+    text-align: center;
+    font-size: 30px;
+    font-family: sans-serif;
+}
 .match{
     position:absolute;
     top: 50%;
@@ -59,22 +119,21 @@ section{
     transition: opacity 0.5s ease 0.5s;
 }
 .winner{
-    color: whitesmoke;
+    color: rgb(29, 29, 29);
     text-align: center;
     font-size: 50px;
 }
-
 .hands,
 .options{
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
-
 .player-hand{
     transform: rotateY(180deg);
 }
 
+/* animations */
 div.fadeOut{
     opacity: 0;
     pointer-events: none;
@@ -146,93 +205,3 @@ div.fadeIn{
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* body{
-    text-align: center;
-    color: rgb(255, 255, 255);
-    font-family: sans-serif;
-}
-header{
-    background-color: rgb(27, 27, 27);
-    padding: 2vh;
-    font-size: 3vh;
-}
-p{
-    padding: 2vh;
-    margin: auto 20% auto 20%;
-    font-size: 3vh;
-    color: rgb(27, 27, 27);
-}
-
-.selection{
-    margin: 4vh auto;
-}
-.selection:hover{
-    transform: scale(1.2);
-}
-
-.results{
-    color: black;
-    font-size: 5vh;
-    margin-top: 1rem;
-    display: grid;
-    justify-content:center;
-    grid-template-columns: repeat(2,1fr);
-    justify-items: center;
-    align-items: center;
-}
-.result-score{
-    margin-left: .1rem;
-    font-size: 3vh;
-
-}
-img{
-    width: 20vh;
-}
-.result-selection.winner{
-    display: inline-block;
-    margin: 2vh;
-}
-.result-selection{
-    display: inline-block;
-    margin: 2vh;
-}
-.visuals{
-    display: block; 
-}
-.visuals:hover{
-    animation: bounce 1s linear;
-}
-@keyframes bounce{
-    20%, 50%, 80%, to{
-        transform: translateY(0);
-    }
-    40%{
-        transform: translateY(-30px);
-    }
-    70%{
-        transform: translateY(-30px);
-    }
-    90%{
-        transform: translateY(-15px);
-    }
-} */

@@ -13,12 +13,50 @@ const game = ()=>{
             match.classList.add('fadeIn');
         });
     };
+
+    //Start timer
+    const startTimer =()=>{
+        const play = document.getElementById("startbutton");
+        const options = document.getElementById("options");
+        const playerHand = document.querySelector('.player-hand');
+        const computerHand = document.querySelector('.computer-hand');
+
+        play.addEventListener('click', ()=>{
+            options.classList.add('visible')
+            options.classList.remove('hidden')
+            
+
+            var timeleft = 3;
+            
+            var downloadTimer = setInterval(function function1(){
+            document.getElementById("countdown").innerHTML = timeleft;
+            console.log(timeleft);
+            timeleft -= 1;
+           
+
+            if(timeleft < 0){
+                clearInterval(downloadTimer);
+                
+            }
+            playerHand.style.animation = "shakePlayer 3s";
+            computerHand.style.animation = "shakeComputer 3s";
+
+            // if(loop === true;)
+            //     playerHand.style.animation = "shakePlayer 2s";
+            //     computerHand.style.animation = "shakeComputer 2s";
+            
+            }, 1000);
+
+
+        });
+    }
+    
     //Play Match
     const playMatch = () =>{
         const options = document.querySelectorAll('.options button');
+        const hands = document.querySelectorAll('.hands img');
         const playerHand = document.querySelector('.player-hand');
         const computerHand = document.querySelector('.computer-hand');
-        const hands = document.querySelectorAll('.hands img');
 
         hands.forEach(hand =>{
             hand.addEventListener('animationend', function(){
@@ -28,8 +66,15 @@ const game = ()=>{
         //computers options
         const computerOptions = ['Rock','Paper','Scissors'];
 
+        
         options.forEach(options=>{
+            // if(document.getElementById('.options button').clicked == true){
+               
+            // }
+        
             options.addEventListener('click',function() {
+                options.classList.add('hidden')
+                options.classList.remove('visible')
                 //Computer choice
                 const computerNumber = Math.floor(Math.random() * 3);
                 const computerChoice = computerOptions[computerNumber];
@@ -40,13 +85,8 @@ const game = ()=>{
                 //update images
                 playerHand.src =`../src/${this.textContent}.png`;
                 computerHand.src =`../src/${computerChoice}.png`;
-                },2000)
-
-
-                //animation
-                playerHand.style.animation = "shakePlayer 2s ease";
-                computerHand.style.animation = "shakeComputer 2s ease";
-
+                })
+                
             });
         });
     };
@@ -57,7 +97,6 @@ const game = ()=>{
         playerScore.textContent = pScore;
         computerScore.textContent = cScore;
     };
-
 
     const compareHands = (playerChoice, computerChoice)=>{
         //update text
@@ -71,7 +110,7 @@ const game = ()=>{
         //Check for Rock
         if(playerChoice === 'Rock'){
             if(computerChoice === 'Scissors'){
-                winner.textContent ='Player won';
+                winner.textContent ='You won';
                 pScore++;
                 updateScore();
                 return;
@@ -97,6 +136,9 @@ const game = ()=>{
             }
         }
           //Check for Paper
+          if(pScore === 3){
+              
+          }
           if(playerChoice === 'Paper'){
             if(computerChoice === 'Scissors'){
                 winner.textContent ='Computer won';
@@ -111,12 +153,10 @@ const game = ()=>{
             }
         }
     }
-
-
-
     //Is call all the inner functions
     startGame();
     playMatch();
+    startTimer();
 };
 
 //start the game function
