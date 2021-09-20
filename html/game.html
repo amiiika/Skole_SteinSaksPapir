@@ -1,65 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel= "stylesheet" href ="../css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
     <title>RockPaperScissors</title>
 </head>
-    <body>
 
-        <header>
-            <h1> Rock Paper Scissors</h1>
-        </header>
-        <section class= "game">
+<body>
 
-            <div class="intro">
-                <p> Reglene i stein saks papir er enkle. Stein slår saks, saks slår papir og papir slår stein. 
-                    To spillere teller ned fra 3 og når man når null skal de vise valgene sine.
-                    Hvis en spiller ikke har valgt, eller velger for sent, så taper denne spilleren. 
-                    <br><br>Om du spiller mot datamaskinen og velger før
-                    tiden er omme så kommer maskinen til å automatisk vinne.
-                    <span class="details">Det er alltid best av 3!</span> Om det blir uavgjort etter tre runder, så spiller 
-                    man alltid til en vinner er avgjort. </p>
-                <button>Start</button>
-            </div>
-            <div class="match fadeOut">
-                <div class="score">
-                    <div class="player-score">
-                        <h2>Player</h2>
-                        <p>0</p>
-                    </div>
-                    <div class="computer-score">
-                        <h2>Computer</h2>
-                        <p>0</p>
-                    </div>
+    <header>
+        <h1> Rock Paper Scissors</h1>
+    </header>
+    <section class="game">
+
+        <div class="intro">
+            <p> Reglene i stein saks papir er enkle. Stein slår saks, saks slår papir og papir slår stein. To spillere teller ned fra 3 og når man når null skal de vise valgene sine. Hvis en spiller ikke har valgt, eller velger for sent, så taper denne spilleren.
+                <br><br>Om du spiller mot datamaskinen og velger før tiden er omme så kommer maskinen til å automatisk vinne.
+                <span class="details">Det er alltid best av 3!</span> Om det blir uavgjort etter tre runder, så spiller man alltid til en vinner er avgjort. </p>
+            <button>Start</button>
+        </div>
+        <div class="match fadeOut">
+            <div class="score">
+                <div class="player-score">
+                    <h2>Player</h2>
+                    <p>0</p>
                 </div>
-
-                <div class="play">
-                    <button class="play">Play</button>
-                </div>
-
-                <h2 class="winner"> Choose an option</h2>
-                <div class= "countdown" id= "countdown">Timer</div>
-                
-                <div class="hands">
-                    <img class = "player-hand" src ="../src/rock.png">
-                    <img class = "computer-hand" src ="../src/rock.png">
-                </div>
-                <div id="options" class="options hidden">
-                    <button class="rock">Rock</button>
-                    <button class="paper">Paper</button>
-                    <button class="scissors">Scissors</button>
-                </div>
-
-                <div id="startbutton" class="play">
-                    <button id="startbutton" class="play">Play</button>
+                <div class="computer-score">
+                    <h2>Computer</h2>
+                    <p>0</p>
                 </div>
             </div>
 
-        </section>
+            <div class="play">
+                <button class="play">Play</button>
+            </div>
 
-        <script src = "../script/app.js" ></script>
-     </body>
+            <h2 class="winner"> Choose an option</h2>
+            <div class="countdown" id="countdown">Timer</div>
+
+            <div class="hands">
+                <img class="hand player-hand" src="../src/Rock.png">
+                <img class="hand computer-hand" src="../src/Rock.png">
+            </div>
+            <div id="options" class="options hidden">
+                <button class="rock">Rock</button>
+                <button class="paper">Paper</button>
+                <button class="scissors">Scissors</button>
+            </div>
+
+            <div id="startbutton" class="play">
+                <button id="startbutton" class="play">Play</button>
+            </div>
+        </div>
+
+    </section>
+
+    <script src="../script/app.js"></script>
+</body>
+
 </html>
