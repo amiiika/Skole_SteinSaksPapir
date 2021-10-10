@@ -3,7 +3,15 @@ const game = () => {
     let cScore = 0;
     let downloadTimer;
 
-    //start game
+    // hands const
+    const playerHand = document.querySelector(".player-hand");
+    const computerHand = document.querySelector(".computer-hand");
+    const hands = document.querySelectorAll(".hands img");
+
+     //update text
+     const winner = document.querySelector(".winner"); 
+
+    //fade in game
     const startGame = () => {
         const playBtn = document.querySelector(".intro button");
         const introScreen = document.querySelector(".intro");
@@ -15,17 +23,26 @@ const game = () => {
         });
     };
 
+
     //Start timer
     const startTimer = () => {
         const play = document.getElementById("startbutton");
         const options = document.getElementById("options");
-        const playerHand = document.querySelector(".player-hand");
-        const computerHand = document.querySelector(".computer-hand");
-        const winner = document.querySelector(".winner");
 
+
+
+        //Play button
         play.addEventListener("click", () => {
             options.classList.add("visible");
             options.classList.remove("hidden");
+            winner.textContent = "Choose an option";
+
+            //start animation
+            document.querySelectorAll(".hand").forEach((hand) => {
+                hand.classList.remove("paused");
+                hand.classList.add("running");
+            });
+
 
             let timeleft = 3;
 
@@ -43,18 +60,14 @@ const game = () => {
                     clearInterval(downloadTimer);
                 }
 
-                document.querySelectorAll(".hand").forEach((hand) => {
-                    hand.classList.add("running");
-                });
 
+                //animation
                 playerHand.style.animationName = "shakePlayer";
                 playerHand.style.animationDuration = "3s";
                 computerHand.style.animationName = "shakeComputer";
                 computerHand.style.animationDuration = "3s";
 
-                // if(loop === true;)
-                //     playerHand.style.animation = "shakePlayer 2s";
-                //     computerHand.style.animation = "shakeComputer 2s";
+               
             }, 1000);
         });
     };
@@ -63,15 +76,14 @@ const game = () => {
     const playMatch = () => {
         const options = document.querySelectorAll(".options button");
         const optionsDiv = document.getElementById("options");
-        const hands = document.querySelectorAll(".hands img");
-        const playerHand = document.querySelector(".player-hand");
-        const computerHand = document.querySelector(".computer-hand");
+
 
         hands.forEach((hand) => {
             hand.addEventListener("animationend", function() {
                 this.style.animation = "";
             });
         });
+
         //computers options
         const computerOptions = ["Rock", "Paper", "Scissors"];
 
@@ -79,9 +91,14 @@ const game = () => {
             option.addEventListener("click", function() {
                 optionsDiv.classList.add("hidden");
                 optionsDiv.classList.remove("visible");
+
+                //pause animation
                 document.querySelectorAll(".hand").forEach((hand) => {
                     hand.classList.add("paused");
+                    hand.classList.remove("running");
+
                 });
+
                 clearInterval(downloadTimer);
                 //Computer choice
                 const computerNumber = Math.floor(Math.random() * 3);
@@ -101,11 +118,28 @@ const game = () => {
         const computerScore = document.querySelector(".computer-score p");
         playerScore.textContent = pScore;
         computerScore.textContent = cScore;
+
+        //Win screen
+
+        //player win
+        if(pScore === 2){
+            window.location.href = "../html/winner.html";
+        };
+
+        //Computer win
+        if(cScore === 2){
+            window.location.href = "../html/loser.html";
+        };
+    
+
+
+        
     };
 
+
+    //score updater
     const compareHands = (playerChoice, computerChoice) => {
-        //update text
-        const winner = document.querySelector(".winner");
+
         //Checking for tie
         if (computerChoice === playerChoice) {
             winner.textContent = "It is a tie!";
@@ -164,5 +198,3 @@ const game = () => {
 
 //start the game function
 game();
-
-//add timer, max three wins, fail when you choose to late or to early
