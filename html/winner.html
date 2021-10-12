@@ -4,18 +4,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="../script/app.js" defer></script>
+    <script src="../script/restart.js" defer></script>
     <link rel="stylesheet" href="../css/win.css">
     <link rel="stylesheet" href="../css/main.css">
     <title>Winner</title>
 </head>
 <body>
-    <header>
-        <h1> Rock Paper Scissors</h1>
-    </header>
+    <audio autoplay loop>
+        <source src="../src/happy.mp3" type="audio/mpeg" />
+      </audio>
 
-    <div class="winScreen">
-        <h3> You Are The Winner</h3>
-    </div>
+        <h3> You Won</h3>
+
+        <div id="restart">
+            <button class="play">Play Again</button>
+        </div>
 </body>
 </html>

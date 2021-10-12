@@ -1,14 +1,20 @@
-const game = () => {
+let game = () => {
     let pScore = 0;
     let cScore = 0;
     let downloadTimer;
+    let timeleft = 3;
+
+    //option button const
+    const optionsBtn = document.querySelectorAll(".options button");
+    const optionsDiv = document.getElementById("options");
+
 
     // hands const
     const playerHand = document.querySelector(".player-hand");
     const computerHand = document.querySelector(".computer-hand");
     const hands = document.querySelectorAll(".hands img");
 
-     //update text
+    //update text
      const winner = document.querySelector(".winner"); 
 
     //fade in game
@@ -29,8 +35,6 @@ const game = () => {
         const play = document.getElementById("startbutton");
         const options = document.getElementById("options");
 
-
-
         //Play button
         play.addEventListener("click", () => {
             options.classList.add("visible");
@@ -44,8 +48,6 @@ const game = () => {
             });
 
 
-            let timeleft = 3;
-
             downloadTimer = setInterval(function() {
                 document.getElementById("countdown").innerHTML = timeleft;
                 timeleft -= 1;
@@ -57,16 +59,29 @@ const game = () => {
                     options.classList.add("hidden");
                     options.classList.remove("visible");
                     updateScore();
-                    clearInterval(downloadTimer);
+                    clearInterval(downloadTimer); 
                 }
 
+                optionsBtn.forEach((option) => {
+                    option.addEventListener("click", function() {
+
+                        if(timeleft > 0 ){
+                            cScore++;
+                            winner.textContent = "Computer won";
+                            options.classList.add("hidden");
+                            options.classList.remove("visible");
+                            updateScore();
+                            clearInterval(downloadTimer);
+                            
+                        }
+                    });
+                });
 
                 //animation
                 playerHand.style.animationName = "shakePlayer";
                 playerHand.style.animationDuration = "3s";
                 computerHand.style.animationName = "shakeComputer";
                 computerHand.style.animationDuration = "3s";
-
                
             }, 1000);
         });
@@ -74,9 +89,6 @@ const game = () => {
 
     //Play Match
     const playMatch = () => {
-        const options = document.querySelectorAll(".options button");
-        const optionsDiv = document.getElementById("options");
-
 
         hands.forEach((hand) => {
             hand.addEventListener("animationend", function() {
@@ -87,7 +99,7 @@ const game = () => {
         //computers options
         const computerOptions = ["Rock", "Paper", "Scissors"];
 
-        options.forEach((option) => {
+        optionsBtn.forEach((option) => {
             option.addEventListener("click", function() {
                 optionsDiv.classList.add("hidden");
                 optionsDiv.classList.remove("visible");
@@ -119,7 +131,7 @@ const game = () => {
         playerScore.textContent = pScore;
         computerScore.textContent = cScore;
 
-        //Win screen
+    //Win screen
 
         //player win
         if(pScore === 2){
@@ -127,15 +139,10 @@ const game = () => {
         };
 
         //Computer win
-        if(cScore === 2){
+        if(cScore === 6){
             window.location.href = "../html/loser.html";
         };
-    
-
-
-        
     };
-
 
     //score updater
     const compareHands = (playerChoice, computerChoice) => {
@@ -174,8 +181,7 @@ const game = () => {
                 return;
             }
         }
-        //Check for Paper
-        if (pScore === 2) {}
+        //Check for Paper   
         if (playerChoice === "Paper") {
             if (computerChoice === "Scissors") {
                 winner.textContent = "Computer won";
@@ -190,11 +196,16 @@ const game = () => {
             }
         }
     };
+
     //Is call all the inner functions
     startGame();
     playMatch();
     startTimer();
 };
 
+    
+
+
 //start the game function
 game();
+
