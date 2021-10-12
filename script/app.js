@@ -2,7 +2,6 @@ let game = () => {
     let pScore = 0;
     let cScore = 0;
     let downloadTimer;
-    let timeleft = 3;
 
     //option button const
     const optionsBtn = document.querySelectorAll(".options button");
@@ -16,6 +15,7 @@ let game = () => {
 
     //update text
      const winner = document.querySelector(".winner"); 
+
 
     //fade in game
     const startGame = () => {
@@ -47,12 +47,14 @@ let game = () => {
                 hand.classList.add("running");
             });
 
+            let timeleft = 3;
 
             downloadTimer = setInterval(function() {
                 document.getElementById("countdown").innerHTML = timeleft;
                 timeleft -= 1;
                 console.log(timeleft);
 
+                //choose too late
                 if (timeleft < 0) {
                     cScore++;
                     winner.textContent = "Computer won";
@@ -62,6 +64,7 @@ let game = () => {
                     clearInterval(downloadTimer); 
                 }
 
+                //choose too early
                 optionsBtn.forEach((option) => {
                     option.addEventListener("click", function() {
 
@@ -118,6 +121,7 @@ let game = () => {
 
                 //here is where we call compare hands
                 compareHands(this.textContent, computerChoice);
+
                 //update images
                 playerHand.src = `../src/${this.textContent}.png`;
                 computerHand.src = `../src/${computerChoice}.png`;
@@ -132,7 +136,6 @@ let game = () => {
         computerScore.textContent = cScore;
 
     //Win screen
-
         //player win
         if(pScore === 2){
             window.location.href = "../html/winner.html";
