@@ -1,4 +1,3 @@
 document.getElementById("restart").onclick = function () {
-    location.href = "../index.html";
-    
-    };
+  location.href = "../index.html";
+};
