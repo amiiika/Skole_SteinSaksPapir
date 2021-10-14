@@ -109,8 +109,8 @@ const game = () => {
         compareHands(this.textContent, computerChoice);
 
         //update images
-        playerHand.src = `../src/${this.textContent}.png`;
-        computerHand.src = `../src/${computerChoice}.png`;
+        playerHand.src = `./src/${this.textContent}.png`;
+        computerHand.src = `./src/${computerChoice}.png`;
       });
     });
   };
@@ -124,12 +124,12 @@ const game = () => {
     //Win screen
     //player win
     if (pScore === 2) {
-      window.location.href = "../html/winner.html";
+      window.location.href = "./html/winner.html";
     }
 
     //Computer win
     if (cScore === 2) {
-      window.location.href = "../html/loser.html";
+      window.location.href = "./html/loser.html";
     }
   };
 
