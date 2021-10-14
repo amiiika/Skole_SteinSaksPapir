@@ -1,70 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="script/app.js" defer></script>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/main.css" />
     <title>RockPaperScissors</title>
-</head>
-<body>
+  </head>
+  <body>
     <audio autoplay loop>
-        <source src="src/playMusic.mp3" type="audio/mpeg" />
+      <source src="src/playMusic.mp3" type="audio/mpeg" />
     </audio>
 
     <header>
-        <h1> Rock Paper Scissors</h1>
+      <h1>Rock Paper Scissors</h1>
     </header>
     <section class="game">
-
-        <div class="intro">
-            <p> The rules in rock, paper, scissors are simple. Stone strikes scissors, scissors 
-                strike paper and paper strikes stone. Two players count down from 3 and when you 
-                reach 0 they must show their choices. If a player has not selected, or selects too 
-                late, then that player loses.
-                <br><br>If you play against the computer and choose before the time is up, the machine will automatically win.
-                <span class="details">It's always the best out of 3!</span> If there is a draw after three rounds, you always play until a winner is decided. </p>
-            <button>Start</button>
-        </div>
-        <div class="match fadeOut">
-            <div class="score">
-                <div class="player-score">
-                    <h2>Player</h2>
-                    <p>0</p>
-                </div>
-                <div class="computer-score">
-                    <h2>Computer</h2>
-                    <p>0</p>
-                </div>
-            </div>
-
-            <div class="play">
-                <button class="play">Play</button>
-            </div>
-
-            <h2 class="winner"> Choose an option</h2>
-            <div class="countdown" id="countdown">Timer</div>
-
-            <div class="hands">
-                <img class="hand player-hand" src="../src/Rock.png">
-                <img class="hand computer-hand" src="../src/Rock.png">
-            </div>
-
-            <div id="options" class="options hidden">
-                <button class="rock">Rock</button>
-                <button class="paper">Paper</button>
-                <button class="scissors">Scissors</button>
-            </div>
-
-            <div id="startbutton" class="play">
-                <button id="startbutton" class="play">Play</button>
-            </div>
+      <div class="intro">
+        <p>
+          The rules in rock, paper, scissors are simple. Stone strikes scissors,
+          scissors strike paper and paper strikes stone. Two players count down
+          from 3 and when you reach 0 they must show their choices. If a player
+          has not selected, or selects too late, then that player loses.
+          <br /><br />If you play against the computer and choose before the
+          time is up, the machine will automatically win.
+          <span class="details">It's always the best out of 3!</span> If there
+          is a draw after three rounds, you always play until a winner is
+          decided.
+        </p>
+        <button>Start</button>
+      </div>
+      <div class="match fadeOut">
+        <div class="score">
+          <div class="player-score">
+            <h2>Player</h2>
+            <p>0</p>
+          </div>
+          <div class="computer-score">
+            <h2>Computer</h2>
+            <p>0</p>
+          </div>
         </div>
 
+        <div class="play">
+          <button class="play">Play</button>
+        </div>
 
+        <h2 class="winner">Choose an option</h2>
+        <div class="countdown" id="countdown">Timer</div>
+
+        <div class="hands">
+          <img class="hand player-hand" src="./src/Rock.png" />
+          <img class="hand computer-hand" src="./src/Rock.png" />
+        </div>
+
+        <div id="options" class="options hidden">
+          <button class="rock">Rock</button>
+          <button class="paper">Paper</button>
+          <button class="scissors">Scissors</button>
+        </div>
+
+        <div class="play">
+          <button id="startbutton" class="play">Play</button>
+        </div>
+      </div>
     </section>
-</body>
-
+  </body>
 </html>
