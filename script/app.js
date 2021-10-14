@@ -2,6 +2,7 @@ let game = () => {
     let pScore = 0;
     let cScore = 0;
     let downloadTimer;
+    let dontRun = false;
 
     //option button const
     const optionsBtn = document.querySelectorAll(".options button");
@@ -14,7 +15,7 @@ let game = () => {
     const hands = document.querySelectorAll(".hands img");
 
     //update text
-     const winner = document.querySelector(".winner"); 
+    const winner = document.querySelector(".winner");
 
 
     //fade in game
@@ -48,8 +49,8 @@ let game = () => {
             });
 
             let timeleft = 3;
-
-            downloadTimer = setInterval(function() {
+            
+            downloadTimer = setInterval(function () {
                 document.getElementById("countdown").innerHTML = timeleft;
                 timeleft -= 1;
                 console.log(timeleft);
@@ -61,32 +62,35 @@ let game = () => {
                     options.classList.add("hidden");
                     options.classList.remove("visible");
                     updateScore();
-                    clearInterval(downloadTimer); 
+                    clearInterval(downloadTimer);
+                    console.log("after 0")
                 }
 
-                //choose too early
-                optionsBtn.forEach((option) => {
-                    option.addEventListener("click", function() {
 
-                        if(timeleft > 0 ){
-                            cScore++;
-                            winner.textContent = "Computer won";
-                            options.classList.add("hidden");
-                            options.classList.remove("visible");
-                            updateScore();
-                            clearInterval(downloadTimer);
-                            
-                        }
-                    });
-                });
 
                 //animation
                 playerHand.style.animationName = "shakePlayer";
                 playerHand.style.animationDuration = "3s";
                 computerHand.style.animationName = "shakeComputer";
                 computerHand.style.animationDuration = "3s";
-               
+
             }, 1000);
+            //choose too early
+            optionsBtn.forEach((option) => {
+                option.addEventListener("click", function () {
+
+                    if (timeleft > 0) {
+                        console.log(timeleft);
+                        noRun();
+                        winner.textContent = "Computer won";
+                        options.classList.add("hidden");
+                        options.classList.remove("visible");
+                        updateScore();
+                        clearInterval(downloadTimer);
+                        console.log("before 0")
+                    }
+                });
+            });
         });
     };
 
@@ -94,7 +98,7 @@ let game = () => {
     const playMatch = () => {
 
         hands.forEach((hand) => {
-            hand.addEventListener("animationend", function() {
+            hand.addEventListener("animationend", function () {
                 this.style.animation = "";
             });
         });
@@ -103,7 +107,7 @@ let game = () => {
         const computerOptions = ["Rock", "Paper", "Scissors"];
 
         optionsBtn.forEach((option) => {
-            option.addEventListener("click", function() {
+            option.addEventListener("click", function () {
                 optionsDiv.classList.add("hidden");
                 optionsDiv.classList.remove("visible");
 
@@ -135,79 +139,84 @@ let game = () => {
         playerScore.textContent = pScore;
         computerScore.textContent = cScore;
 
-    //Win screen
+        //Win screen
         //player win
-        if(pScore === 2){
+        if (pScore === 2) {
             window.location.href = "../html/winner.html";
         };
 
         //Computer win
-        if(cScore === 6){
+        if (cScore === 10) {
             window.location.href = "../html/loser.html";
         };
+    };
+
+    //cancelling the update score
+    const noRun = () => {
+        dontRun = true;
     };
 
     //score updater
     const compareHands = (playerChoice, computerChoice) => {
 
-        //Checking for tie
-        if (computerChoice === playerChoice) {
-            winner.textContent = "It is a tie!";
-            return;
-        }
+        if (dontRun === false) {
+            //Checking for tie
+            if (computerChoice === playerChoice) {
+                winner.textContent = "It is a tie!";
+                return;
+            }
 
-        //Check for Rock
-        if (playerChoice === "Rock") {
-            if (computerChoice === "Scissors") {
-                winner.textContent = "You won";
-                pScore++;
-                updateScore();
-                return;
-            } else {
-                winner.textContent = "Computer won";
-                cScore++;
-                updateScore();
-                return;
+            //Check for Rock
+            if (playerChoice === "Rock") {
+                if (computerChoice === "Scissors") {
+                    winner.textContent = "You won";
+                    pScore++;
+                    updateScore();
+                    return;
+                } else {
+                    winner.textContent = "Computer won";
+                    cScore++;
+                    updateScore();
+                    return;
+                }
             }
-        }
-        //Check for Scissors
-        if (playerChoice === "Scissors") {
-            if (computerChoice === "Rock") {
-                winner.textContent = "Computer won";
-                cScore++;
-                updateScore();
-                return;
-            } else {
-                winner.textContent = "Player won";
-                pScore++;
-                updateScore();
-                return;
+            //Check for Scissors
+            if (playerChoice === "Scissors") {
+                if (computerChoice === "Rock") {
+                    winner.textContent = "Computer won";
+                    cScore++;
+                    updateScore();
+                    return;
+                } else {
+                    winner.textContent = "Player won";
+                    pScore++;
+                    updateScore();
+                    return;
+                }
             }
-        }
-        //Check for Paper   
-        if (playerChoice === "Paper") {
-            if (computerChoice === "Scissors") {
-                winner.textContent = "Computer won";
-                cScore++;
-                updateScore();
-                return;
-            } else {
-                winner.textContent = "Player won";
-                pScore++;
-                updateScore();
-                return;
+            //Check for Paper   
+            if (playerChoice === "Paper") {
+                if (computerChoice === "Scissors") {
+                    winner.textContent = "Computer won";
+                    cScore++;
+                    updateScore();
+                    return;
+                } else {
+                    winner.textContent = "Player won";
+                    pScore++;
+                    updateScore();
+                    return;
+                }
             }
-        }
-    };
+        };
+    }
+
 
     //Is call all the inner functions
     startGame();
     playMatch();
     startTimer();
 };
-
-    
-
 
 //start the game function
 game();
