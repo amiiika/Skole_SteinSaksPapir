@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="script/controller.js" defer></script>
+    <script type="module" src="./script/view.js" defer></script>
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/main.css" />
     <title>RockPaperScissors</title>
@@ -15,7 +15,9 @@
     <header>
       <h1>Rock Paper Scissors</h1>
     </header>
+
     <section class="game">
+      <!-- intro screen -->
       <div class="intro">
         <p>
           The rules in rock, paper, scissors are simple. Stone strikes scissors,
@@ -30,7 +32,9 @@
         </p>
         <button>Start</button>
       </div>
+      <!-- playing feild -->
       <div class="match fadeOut">
+        <!-- scoreboard -->
         <div class="score">
           <div class="player-score">
             <h2>Player</h2>
@@ -49,11 +53,13 @@
         <h2 class="winner">Choose an option</h2>
         <div class="countdown" id="countdown">Timer</div>
 
+        <!-- images -->
         <div class="hands">
           <img class="hand player-hand" src="./src/Rock.png" />
           <img class="hand computer-hand" src="./src/Rock.png" />
         </div>
 
+        <!-- player options -->
         <div id="options" class="options hidden">
           <button class="rock">Rock</button>
           <button class="paper">Paper</button>
@@ -65,5 +71,6 @@
         </div>
       </div>
     </section>
+    
   </body>
 </html>

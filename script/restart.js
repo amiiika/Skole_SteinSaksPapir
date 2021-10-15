@@ -1,5 +1,3 @@
-export function restart() {
-  document.getElementById("restart").onclick = function () {
-    location.href = "../index.html";
-  };
-}
+document.getElementById("restart").onclick = function () {
+  location.href = "../index.html";
+};

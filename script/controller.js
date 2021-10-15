@@ -1,4 +1,5 @@
-const game = () => {
+export const game = () => {
+  //scores and timer
   let pScore = 0;
   let cScore = 0;
   let downloadTimer;
@@ -22,6 +23,7 @@ const game = () => {
     const introScreen = document.querySelector(".intro");
     const match = document.querySelector(".match");
 
+    //start button
     playBtn.addEventListener("click", () => {
       introScreen.classList.add("fadeOut");
       match.classList.add("fadeIn");
@@ -193,4 +195,3 @@ const game = () => {
 };
 
 //start the game function
-game();
