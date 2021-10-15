@@ -1,4 +1,4 @@
-export const game = () => {
+const game = () => {
   let pScore = 0;
   let cScore = 0;
   let downloadTimer;
@@ -93,6 +93,7 @@ export const game = () => {
 
         clearInterval(downloadTimer);
 
+        //choose too early
         if (timeleft > 0) {
           cScore++;
           winner.textContent = "Computer won";
@@ -192,3 +193,4 @@ export const game = () => {
 };
 
 //start the game function
+game();
