@@ -15,13 +15,13 @@ body {
 .score h2 {
   padding-left: 10vh;
   padding-right: 10vh;
-  font-size: 30px;
+  font-size: 4vh;
 }
 
 .score p {
   text-align: center;
-  padding: 10px;
-  font-size: 25px;
+  padding: 1vh;
+  font-size: 3vh;
 }
 
 /* intro */
@@ -34,7 +34,7 @@ body {
   align-items: center;
   justify-content: space-around;
   text-align: center;
-  padding: 2px;
+  padding: 1vh;
   margin: auto 20% auto 20%;
   transition: opacity 0.5s ease;
 }
@@ -53,14 +53,14 @@ body {
 
 .intro button,
 .match button {
-  width: 150px;
-  height: 50px;
+  width: 20vh;
+  height: 8vh;
   background: none;
   border: none;
   color: whitesmoke;
-  font-size: 20px;
+  font-size: 3vh;
   background-color: tomato;
-  border-radius: 6px;
+  border-radius: 1.5vh;
   transition: 0.3s;
 }
 
@@ -101,7 +101,7 @@ body {
 
 .match p {
   text-align: center;
-  font-size: 30px;
+  font-size: 3vh;
   font-family: sans-serif;
 }
 
@@ -116,7 +116,7 @@ body {
 .winner {
   color: rgb(29, 29, 29);
   text-align: center;
-  font-size: 50px;
+  font-size: 8vh;
 }
 
 .hands,
@@ -124,6 +124,11 @@ body {
   display: flex;
   justify-content: space-around;
   align-items: center;
+}
+
+.player-hand,
+.computer-hand{
+  width: 45vh;
 }
 
 .player-hand {
